@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffe6ef">
+<title>100 Reasons I Love You, Puntuuuu 💗</title>
+<style>
+*{box-sizing:border-box} body{margin:0;min-height:100vh;font-family:Georgia,'Times New Roman',serif;color:#853653;background:radial-gradient(circle at top,#fff9fc,#ffe6ef 55%,#ffd5e4);display:flex;align-items:center;justify-content:center;padding:22px}
+.wrap{width:min(100%,520px);text-align:center} .card{background:#fffafc;border:1px solid #f8c5d7;border-radius:28px;padding:28px 22px;box-shadow:0 18px 55px #b94f7622}
+.kicker{letter-spacing:3px;text-transform:uppercase;font:12px Arial,sans-serif;color:#c16b8b} h1{font-size:clamp(30px,8vw,43px);line-height:1.08;margin:12px 0;color:#b43d70} .sub{font-size:17px;line-height:1.5;color:#a85c79}
+.jar{font-size:100px;margin:12px 0 0;filter:drop-shadow(0 8px 8px #d77a9b33);animation:float 3s ease-in-out infinite} @keyframes float{50%{transform:translateY(-8px) rotate(2deg)}}
+.note{background:#fff0f5;border:1px dashed #e8a0ba;border-radius:20px;padding:24px 18px;margin:18px 0;min-height:150px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.num{font:12px Arial,sans-serif;letter-spacing:2px;color:#c16b8b} #reason{font-size:clamp(21px,5vw,27px);line-height:1.35;color:#8e3658}
+button{border:0;border-radius:999px;background:#d85b8b;color:white;font-size:16px;font-weight:bold;padding:15px 24px;cursor:pointer;box-shadow:0 7px 18px #d85b8b44;width:100%;margin:6px 0} button:active{transform:scale(.98)} .secondary{background:#fff;color:#bd527c;border:1px solid #efbfd0;box-shadow:none}
+.progress{height:7px;background:#f8d8e4;border-radius:99px;overflow:hidden;margin:14px 0 5px} #bar{height:100%;width:0;background:#d85b8b;transition:width .25s} .small{font:12px Arial,sans-serif;color:#b36a86} footer{margin-top:20px;font-size:18px;color:#bf4c7b;line-height:1.5}
+</style></head>
+<body><main class="wrap"><section class="card">
+<div class="kicker">A little jar full of my heart</div>
+<h1>100 Reasons<br>Why I Love You</h1>
+<div class="sub">For my one and only, <b>Puntuuuu</b> 💗</div>
+<div class="jar" aria-hidden="true">🫙</div>
+<div class="note" aria-live="polite"><div class="num" id="num">YOUR FIRST NOTE IS WAITING</div><div id="reason">Tap below to open a little piece of my heart. 💌</div></div>
+<button id="open">Open a love note 💌</button>
+<button class="secondary" id="again">Start over ↻</button>
+<div class="progress"><div id="bar"></div></div>
+<div class="small" id="count">0 of 100 notes opened</div>
+<footer>Distance can keep us apart,<br>but it can never change how much I love you. ❤️<br><b>Forever yours.</b></footer>
+</section></main>
+<script>
+const reasons = ["Your smile makes my whole day brighter. 💗", "The way you care about me melts my heart.", "You make even ordinary days feel magical.", "तिम्रो मुस्कान मेरो सबैभन्दा मनपर्ने कुरा हो।", "You understand me even when I struggle to explain myself.", "Your voice is my favourite sound.", "You make me feel loved without even trying.", "तिमी मेरो जीवनमा आएको सबैभन्दा सुन्दर उपहार हौ।", "Your little tantrums are secretly adorable.", "I love the way you say my name.", "You make distance feel a little less difficult.", "तिमीसँग कुरा गर्दा समय बितेको पत्तै हुँदैन।", "You are my favourite notification.", "Your happiness means everything to me.", "I can be completely myself around you.", "तिमी रिसाउँदा पनि मलाई उत्तिकै प्यारी लाग्छौ।", "You make my heart feel at home.", "Your eyes have a beauty I can never describe.", "You make me want to become a better person.", "I love every little thing about you.", "तिम्रो हाँसो सुन्दा मेरो मन खुसी हुन्छ।", "You are the first person I want to tell everything to.", "You make my bad days better.", "Your kindness makes you even more beautiful.", "I love your silly and cute side.", "तिमी बिना मेरो दिन अधुरो लाग्छ।", "You make me believe in forever.", "I love how you make me feel special.", "Your hugs are my favourite place.", "You are beautiful inside and out.", "तिम्रो माया मेरो लागि संसार हो।", "You never have to pretend around me.", "I love your little habits.", "You make my heart skip a beat.", "I love dreaming about our future.", "You are my favourite person to annoy.", "तिम्रो एउटा message ले पनि मेरो दिन राम्रो बनाउँछ।", "You make long-distance love worth it.", "I love how you share your little stories with me.", "You bring peace to my heart.", "Your happiness is my happiness.", "I love your sleepy voice.", "You make me feel lucky every single day.", "तिमी मेरो हरेक प्रार्थनाको सुन्दर जवाफ हौ।", "I love the way you laugh at silly things.", "You are my favourite hello and hardest goodbye.", "I want to celebrate every little achievement with you.", "You make love feel beautiful.", "I love your honesty.", "You are the person I want beside me in every season.", "तिमीसँग बिताएको हरेक पल मेरो लागि अनमोल छ।", "You make my world more colourful.", "I love how you remember little things about me.", "You are my favourite daydream.", "Your existence makes my life better.", "I love your beautiful heart.", "I want to hold your hand through every difficulty.", "तिमी मेरो मुस्कानको एउटा ठूलो कारण हौ।", "You make me feel appreciated.", "I love the way you look at me.", "You are my comfort after a tiring day.", "I love sharing secrets with you.", "You make every good moment even better.", "I love how cute you get when you're excited.", "तिमी मेरो लागि अरूभन्दा धेरै विशेष छौ।", "I want to make a thousand memories with you.", "You inspire me to love more deeply.", "I love your beautiful little imperfections.", "You are my favourite adventure.", "I want to grow old with you.", "Your presence makes everything feel okay.", "I love every conversation we have.", "You make my heart feel safe.", "म तिमीलाई हरेक दिन अझ धेरै माया गर्छु।", "I love the way you care about the people you love.", "You are the sweetest part of my life.", "I want to be your biggest supporter.", "I love your unexpected surprises.", "You make me smile at my phone like an idiot.", "I love imagining our future home together.", "तिमी मेरो आज पनि हौ र भोलिको सपना पनि।", "You make even silence comfortable.", "I love that I get to call you mine.", "You are worth every effort and every mile.", "I love your cute little expressions.", "You make me feel like the luckiest person alive.", "I want to be there for your happiest and hardest days.", "Your love gives me strength.", "I love how we create our own little world.", "You are more precious than words can explain.", "तिमी मेरो मनको सबैभन्दा नजिकको मान्छे हौ।", "I love choosing you, again and again.", "I want to make you proud of us.", "You make my heart smile.", "I love every version of you.", "No matter how far apart we are, you are close to my heart.", "You are my favourite blessing.", "I promise to keep making beautiful memories with you.", "तिमी नै मेरो मनले रोजेको मान्छे हौ।", "After all these reasons, the biggest one is simply YOU. I LOVE YOU, PUNTUUUU! ❤️"];
+let remaining = [...Array(reasons.length).keys()];
+let opened = 0;
+const reasonEl = document.getElementById('reason');
+const numEl = document.getElementById('num');
+const countEl = document.getElementById('count');
+const bar = document.getElementById('bar');
+function update(){countEl.textContent = `${opened} of 100 notes opened`;bar.style.width = `${opened}%`;}
+document.getElementById('open').addEventListener('click',()=>{
+ if(remaining.length===0){reasonEl.textContent="You've opened all 100 notes! But I'll never run out of reasons to love you. ❤️";numEl.textContent="ALL 100 NOTES OPENED";return;}
+ const pick = Math.floor(Math.random()*remaining.length);
+ const index = remaining.splice(pick,1)[0];
+ opened++;numEl.textContent=`LOVE NOTE #${index+1}`;reasonEl.textContent=reasons[index];update();
+ document.getElementById('open').textContent = remaining.length ? "Open another love note 💗" : "All notes opened 💖";
+});
+document.getElementById('again').addEventListener('click',()=>{remaining=[...Array(reasons.length).keys()];opened=0;numEl.textContent="YOUR FIRST NOTE IS WAITING";reasonEl.textContent="Tap below to open a little piece of my heart. 💌";document.getElementById('open').textContent="Open a love note 💌";update();});
+</script></body></html>
